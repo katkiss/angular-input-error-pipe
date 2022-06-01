@@ -1,0 +1,8 @@
+<p>
+  Start editing to see some magic happen :)
+</p>
+<form [formGroup]="form">
+  <input [formControl]="name"/>
+  <label> invalid: {{name.invalid}}</label>
+  <label> isError: {{name.invalid | error :name.touched:name.dirty}}</label>
+</form>
