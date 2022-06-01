@@ -1,8 +1,18 @@
-<p>
-  Start editing to see some magic happen :)
-</p>
+<p>Start editing to see some magic happen :)</p>
 <form [formGroup]="form">
-  <input [formControl]="name"/>
-  <label> invalid: {{name.invalid}}</label>
-  <label> isError: {{name.invalid | error :name.touched:name.dirty}}</label>
+  <input [formControl]="name" />
+  <div class="flex-labels">
+    <label [ngClass]="name.invalid && 'invalid'">
+      invalid: {{ name.invalid }}</label
+    >
+    <label [ngClass]="name.touched && 'touched'">
+      touched: {{ name.touched }}</label
+    >
+    <label [ngClass]="name.dirty && 'dirty'"> dirty: {{ name.dirty }}</label>
+    <label
+      [ngClass]="(name.invalid | error: name.touched:name.dirty) && 'error'"
+    >
+      isError: {{ name.invalid | error: name.touched:name.dirty }}</label
+    >
+  </div>
 </form>
