@@ -1,4 +1,4 @@
-<p>Start editing to see some magic happen :)</p>
+<p>How error pipe works</p>
 <form [formGroup]="form">
   <input [formControl]="name" />
   <div class="flex-labels">
@@ -10,9 +10,24 @@
     >
     <label [ngClass]="name.dirty && 'dirty'"> dirty: {{ name.dirty }}</label>
     <label
-      [ngClass]="(name.invalid | error: name.touched:name.dirty) && 'error'"
+      [ngClass]="(name.invalid | error: name.touched: name.dirty) && 'error'"
     >
-      isError: {{ name.invalid | error: name.touched:name.dirty }}</label
+      isError: {{ name.invalid | error: name.touched: name.dirty }}</label
     >
+    <small>If you want to detect changes, you need to pass the values of FormControl.</small>
+  </div>
+</form>
+
+
+<p>How I wanted to work, but it doesn't</p>
+<form [formGroup]="formIdealistic">
+  <input [formControl]="nameIdealistic" [ngClass]/>
+  <div class="flex-labels">
+    <label [ngClass]="(nameIdealistic | errorIdealistic) && 'error'">
+      isError: {{ nameIdealistic | errorIdealistic }}</label
+    >
+    <small>This should show error, if touched and/or dirty and empty.</small>
+    <small>Pipe doesn't pick up change, because the formControl is initialized, and the object reference is not changed, if invalid, dirty or touched changes.</small>
+    <a href="https://stackoverflow.com/a/34497504/19412879">stackoverflow</a>
   </div>
 </form>

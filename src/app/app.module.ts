@@ -4,11 +4,11 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { HelloComponent } from './hello.component';
-import { ErrorPipe } from './error.pipe';
+import { ErrorPipe, ErrorPipeIdealistic } from './error.pipe';
 
 @NgModule({
   imports:      [ BrowserModule, FormsModule, ReactiveFormsModule ],
-  declarations: [ AppComponent, HelloComponent, ErrorPipe ],
+  declarations: [ AppComponent, HelloComponent, ErrorPipe, ErrorPipeIdealistic ],
   bootstrap:    [ AppComponent ]
 })
 export class AppModule { }
